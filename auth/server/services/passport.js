@@ -33,7 +33,6 @@ const jwtOptions = {
 
 // create JWT Strategy (signing up)
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
-	console.log(payload);
 	// see if the user ID in the payload exist in our DB
 	User.findById(payload.sub, function(err, user) {
 		if (err) { return done(err, false); }
